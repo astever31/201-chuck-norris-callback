@@ -5,16 +5,17 @@ import dash_html_components as html
 import os
 
 ###### Set up variables
-list_of_choices=['punch', 'body-slam', 'round-house kick to the face']
-githublink = 'https://github.com/austinlasseter/chuck_norris_execution'
-image1='chucknorris.jpg'
-heading1='Chuck Norris execution method'
+list_of_choices=['happy', 'angry', 'sad']
+githublink = 'https://github.com/astever31/201-chuck-norris-callback'
+image1='happy-pika.jpg'
+#list_of_images=['happy-pika.jpg', 'angry-pika.jpg', 'sad-pika.jpg']
+heading1='The various emotions of Pikachu'
 
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
-app.title='Chuck'
+app.title='Pikachu'
 
 ####### Layout of the app ########
 app.layout = html.Div([
@@ -22,7 +23,7 @@ app.layout = html.Div([
     html.Img(src=app.get_asset_url(image1), style={'width': 'auto', 'height': '10%'}),
     dcc.Dropdown(id='your-input-here',
                 options=[{'label': i, 'value': i} for i in list_of_choices],
-                value='punch',
+                value='happy',
                 style={'width': '500px'}),
     html.Br(),
     html.Div(id='your-output-here', children=''),
@@ -36,7 +37,7 @@ app.layout = html.Div([
 @app.callback(dash.dependencies.Output('your-output-here', 'children'),
               [dash.dependencies.Input('your-input-here', 'value')])
 def display_value(whatever_you_chose):
-    return f'Chuck Norris will now execute you with a {whatever_you_chose}.'
+    return f'You made Pikachu {whatever_you_chose}!'
 
 
 ######### Run the app #########
