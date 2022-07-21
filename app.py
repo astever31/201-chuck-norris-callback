@@ -7,7 +7,7 @@ import os
 ###### Set up variables
 list_of_choices=['angry', 'happy', 'sad']
 githublink = 'https://github.com/astever31/201-chuck-norris-callback'
-#image1='mad-pika.jpg'
+image1='happy-pika.jpg'
 list_of_images=['mad-pika.jpg', 'happy-pika.jpg', 'sad-pika.jpg']
 heading1='The various emotions of Pikachu'
 mydict={list_of_choices[i]:list_of_images[i] for i in range(len(list_of_choices))}
@@ -22,6 +22,7 @@ app.title=tabtitle
 ####### Layout of the app ########
 app.layout = html.Div([
     html.H2(heading1),
+    html.Img(id='image-output', src=app.get_asset_url(image1)),
     dcc.Dropdown(id='your-input-here',
                 options=[{'label': list_of_choices[i], 'value': i} for i in range(len(list_of_choices))],
                 value=list_of_images[0],
