@@ -9,14 +9,15 @@ list_of_choices=['angry', 'happy', 'sad']
 githublink = 'https://github.com/austinlasseter/chuck_norris_execution'
 #image1='mad-pika.jpg'
 list_of_images=['mad-pika.jpg', 'happy-pika.jpg', 'sad-pika.jpg']
-heading1='Chuck Norris execution method'
+heading1='The various emotions of Pikachu'
 mydict={list_of_choices[i]:list_of_images[i] for i in range(len(list_of_choices))}
+tabtitle='Pikachu'
 
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
-app.title='Chuck'
+app.title=tabtitle
 
 ####### Layout of the app ########
 app.layout = html.Div([
