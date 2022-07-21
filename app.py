@@ -6,15 +6,7 @@ import os
 
 ###### Set up variables
 list_of_choices=['angry', 'happy', 'sad']
-<<<<<<< HEAD
-<<<<<<< HEAD
-githublink = 'https://github.com/austinlasseter/chuck_norris_execution'
-=======
 githublink = 'https://github.com/astever31/201-chuck-norris-callback'
->>>>>>> updated app.py
-=======
-githublink = 'https://github.com/astever31/201-chuck-norris-callback'
->>>>>>> 5f31d611e22b2905a778e58c236de6eb13716aba
 #image1='mad-pika.jpg'
 list_of_images=['mad-pika.jpg', 'happy-pika.jpg', 'sad-pika.jpg']
 heading1='The various emotions of Pikachu'
@@ -48,10 +40,10 @@ app.layout = html.Div([
 def display_value(whatever_you_chose):
     return html.Img(src=app.get_asset_url(whatever_you_chose), style={'width': 'auto', 'height': '10%'}) 
 
-@app.callback(dash.dependencies.Output('your-output-here', 'children'),
-              [dash.dependencies.Input('your-input-here', 'value')])
-def display_value(whatever_you_chose):
-    return f'You made Pikachu {list_of_choices[whatever_you_chose]}!'
+#@app.callback(dash.dependencies.Output('your-output-here', 'children'),
+              #[dash.dependencies.Input('your-input-here', 'value')])
+#def display_value(whatever_you_chose):
+    #return f'You made Pikachu {list_of_choices[whatever_you_chose]}!'
 
 ######### Run the app #########
 if __name__ == '__main__':
