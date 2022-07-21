@@ -5,11 +5,12 @@ import dash_html_components as html
 import os
 
 ###### Set up variables
-list_of_choices=['punch', 'body-slam', 'round-house kick to the face']
+list_of_choices=['angry', 'happy', 'sad']
 githublink = 'https://github.com/austinlasseter/chuck_norris_execution'
 #image1='mad-pika.jpg'
 list_of_images=['mad-pika.jpg', 'happy-pika.jpg', 'sad-pika.jpg']
 heading1='Chuck Norris execution method'
+mydict={list_of_choices[i]:list_of_images[i] for i in range(len(list_of_choices))}
 
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
@@ -21,7 +22,7 @@ app.title='Chuck'
 app.layout = html.Div([
     html.H2(heading1),
     dcc.Dropdown(id='your-input-here',
-                options=[{'label': i, 'value': n} for i in list_of_choices for n in list_of_images],
+                options=[{'label': i, 'value': n} for i, n in mydict.items()],
                 value=list_of_images[0],
                 style={'width': '500px'}),
     html.Br(),
