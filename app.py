@@ -23,7 +23,7 @@ app.title=tabtitle
 app.layout = html.Div([
     html.H2(heading1),
     dcc.Dropdown(id='your-input-here',
-                options=[{'label': list_of_choices[i], 'value': i} for i in list_of_choices],
+                options=[{'label': list_of_choices[i], 'value': i} for i in range(len(list_of_choices))],
                 value=list_of_images[0],
                 style={'width': '500px'}),
     html.Br(),
