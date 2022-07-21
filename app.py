@@ -7,7 +7,7 @@ import os
 ###### Set up variables
 list_of_choices=['punch', 'body-slam', 'round-house kick to the face']
 githublink = 'https://github.com/austinlasseter/chuck_norris_execution'
-image1='chucknorris.jpg'
+image1='mad-pika.jpg'
 heading1='Chuck Norris execution method'
 
 ########### Initiate the app
