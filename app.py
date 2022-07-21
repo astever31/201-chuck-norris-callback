@@ -5,32 +5,25 @@ import dash_html_components as html
 import os
 
 ###### Set up variables
-list_of_choices=['happy', 'angry', 'sad']
-githublink = 'https://github.com/astever31/201-chuck-norris-callback'
-#image1='happy-pika.jpg'
-list_of_images=['happy-pika.jpg', 'angry-pika.jpg', 'sad-pika.jpg']
-heading1='The various emotions of Pikachu'
-tabtitle='Pikachu'
+list_of_choices=['punch', 'body-slam', 'round-house kick to the face']
+githublink = 'https://github.com/austinlasseter/chuck_norris_execution'
+image1='chucknorris.jpg'
+heading1='Chuck Norris execution method'
 
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
-app.title=tabtitle
+app.title='Chuck'
 
 ####### Layout of the app ########
-app.layout = html.Div(children=[
+app.layout = html.Div([
     html.H2(heading1),
+    html.Img(src=app.get_asset_url(image1), style={'width': 'auto', 'height': '10%'}),
     dcc.Dropdown(id='your-input-here',
-                #options=[{'label': i, 'value': n} for i in list_of_choices for n in list_of_images],
-                options=[
-                {'label':list_of_options[0], 'value':list_of_images[0]},
-                {'label':list_of_options[1], 'value':list_of_images[1]},
-                {'label':list_of_options[2], 'value':list_of_images[2]},
-                {'label':list_of_options[3], 'value':list_of_images[3]},
-                ],
-                value=list_of_choices[4]
-                ),
+                options=[{'label': i, 'value': i} for i in list_of_choices],
+                value='punch',
+                style={'width': '500px'}),
     html.Br(),
     html.Div(id='your-output-here', children=''),
     html.Br(),
@@ -43,8 +36,7 @@ app.layout = html.Div(children=[
 @app.callback(dash.dependencies.Output('your-output-here', 'children'),
               [dash.dependencies.Input('your-input-here', 'value')])
 def display_value(whatever_you_chose):
-    return html.Img(src=app.get_asset_url(whatever_you_chose), style={'width': 'auto', 'height': '10%'}),
-f'You made Pikachu {whatever_you_chose}!'
+    return f'Chuck Norris will now execute you with a {whatever_you_chose}.'
 
 
 ######### Run the app #########
