@@ -23,7 +23,7 @@ app.title=tabtitle
 app.layout = html.Div([
     html.H2(heading1),
     dcc.Dropdown(id='your-input-here',
-                options=[{'label': i, 'value': n} for i, n in mydict.items()],
+                options=[{'label': list_of_choices[i], 'value': i} for i in list_of_choices],
                 value=list_of_images[0],
                 style={'width': '500px'}),
     html.Br(),
@@ -38,12 +38,12 @@ app.layout = html.Div([
 @app.callback(dash.dependencies.Output('your-output-here', 'children'),
               [dash.dependencies.Input('your-input-here', 'value')])
 def display_value(whatever_you_chose):
-    return html.Img(src=app.get_asset_url(whatever_you_chose), style={'width': 'auto', 'height': '10%'}) 
+    return html.Img(src=app.get_asset_url(mydict.get(whatever_you_chose)), style={'width': 'auto', 'height': '10%'}) 
 
-#@app.callback(dash.dependencies.Output('your-output-here', 'children'),
-              #[dash.dependencies.Input('your-input-here', 'value')])
-#def display_value(whatever_you_chose):
-    #return f'You made Pikachu {list_of_choices[whatever_you_chose]}!'
+@app.callback(dash.dependencies.Output('your-output-here', 'children'),
+              [dash.dependencies.Input('your-input-here', 'value')])
+def display_value(whatever_you_chose):
+    return f'You made Pikachu {list_of_choices[whatever_you_chose]}!'
 
 ######### Run the app #########
 if __name__ == '__main__':
