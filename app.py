@@ -10,20 +10,27 @@ githublink = 'https://github.com/astever31/201-chuck-norris-callback'
 #image1='happy-pika.jpg'
 list_of_images=['happy-pika.jpg', 'angry-pika.jpg', 'sad-pika.jpg']
 heading1='The various emotions of Pikachu'
+tabtitle='Pikachu'
 
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
-app.title='Pikachu'
+app.title=tabtitle
 
 ####### Layout of the app ########
-app.layout = html.Div([
+app.layout = html.Div(children=[
     html.H2(heading1),
     dcc.Dropdown(id='your-input-here',
-                options=[{'label': i, 'value': n} for i in list_of_choices for n in list_of_images],
-                value=list_of_choices,
-                style={'width': '500px'}),
+                #options=[{'label': i, 'value': n} for i in list_of_choices for n in list_of_images],
+                options=[
+                {'label':list_of_options[0], 'value':list_of_images[0]},
+                {'label':list_of_options[1], 'value':list_of_images[1]},
+                {'label':list_of_options[2], 'value':list_of_images[2]},
+                {'label':list_of_options[3], 'value':list_of_images[3]},
+                ],
+                value=list_of_choices[4]
+                ),
     html.Br(),
     html.Div(id='your-output-here', children=''),
     html.Br(),
