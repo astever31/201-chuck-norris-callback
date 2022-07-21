@@ -21,13 +21,8 @@ app.title='Chuck'
 app.layout = html.Div([
     html.H2(heading1),
     dcc.Dropdown(id='your-input-here',
-                options=[
-                        {'label':list_of_options[0], 'value':list_of_images[0]},
-                        {'label':list_of_options[1], 'value':list_of_images[1]},
-                        {'label':list_of_options[2], 'value':list_of_images[2]},
-                        {'label':list_of_options[3], 'value':list_of_images[3]},
-                ],
-                value=list_of_images[1],
+                options=[{'label': i, 'value': n} for i in list_of_choices for n in list_of_images],
+                value=list_of_images[0],
                 style={'width': '500px'}),
     html.Br(),
     html.Div(id='your-output-here', children=''),
