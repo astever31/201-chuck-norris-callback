@@ -39,12 +39,12 @@ app.layout = html.Div([
 @app.callback(dash.dependencies.Output('your-output-here', 'children'),
               [dash.dependencies.Input('your-input-here', 'value')])
 def display_value(whatever_you_chose):
-    return html.Img(src=app.get_asset_url(list_of_images[whatever_you_chose]), style={'width': 'auto', 'height': '10%'}) 
+    return f'You made Pikachu {list_of_choices[whatever_you_chose]}!'
 
-@app.callback(dash.dependencies.Output('your-output-here', 'children'),
+@app.callback(dash.dependencies.Output('image-output', 'src'),
               [dash.dependencies.Input('your-input-here', 'value')])
 def display_value(whatever_you_chose):
-    return f'You made Pikachu {list_of_choices[whatever_you_chose]}!'
+    return app.get_asset_url(list_of_images[whatever_you_chose]#, style={'width': 'auto', 'height': '10%'}
 
 ######### Run the app #########
 if __name__ == '__main__':
