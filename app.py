@@ -25,7 +25,7 @@ app.layout = html.Div([
     html.Img(id='image-output', src=app.get_asset_url(image1)),
     dcc.Dropdown(id='your-input-here',
                 options=[{'label': list_of_choices[i], 'value': i} for i in range(len(list_of_choices))],
-                value=list_of_choices[1],
+                value='angry',#list_of_choices[1],
                 style={'width': '500px'}),
     html.Br(),
     html.Div(id='your-output-here', children=''),
@@ -44,7 +44,7 @@ def display_value(whatever_you_chose):
 @app.callback(dash.dependencies.Output('image-output', 'src'),
               [dash.dependencies.Input('your-input-here', 'value')])
 def display_value(whatever_you_chose):
-    return app.get_asset_url(list_of_images[whatever_you_chose]#, style={'width': 'auto', 'height': '10%'}
+    return app.get_asset_url(list_of_images[whatever_you_chose])#, style={'width': 'auto', 'height': '10%'}
 
 ######### Run the app #########
 if __name__ == '__main__':
