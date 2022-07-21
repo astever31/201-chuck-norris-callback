@@ -21,8 +21,7 @@ app.title='Chuck'
 app.layout = html.Div([
     html.H2(heading1),
     dcc.Dropdown(id='your-input-here',
-                 options=[{list_of_choices[i]:list_of_images[i] for i in range(len(list_of_choices))}],
-                #options=[{'label': i, 'value': n} for i in list_of_choices for n in list_of_images],
+                options=[{'label': i, 'value': n} for i in list_of_choices for n in list_of_images],
                 value=list_of_images[0],
                 style={'width': '500px'}),
     html.Br(),
@@ -37,7 +36,7 @@ app.layout = html.Div([
 @app.callback(dash.dependencies.Output('your-output-here', 'children'),
               [dash.dependencies.Input('your-input-here', 'value')])
 def display_value(whatever_you_chose):
-    return html.Img(src=app.get_asset_url(whatever_you_chose), style={'width': 'auto', 'height': '10%'}), f'Chuck Norris will now execute you with a {whatever_you_chose}.'
+    return html.Img(src=app.get_asset_url(whatever_you_chose), style={'width': 'auto', 'height': '10%'}), f'Chuck Norris will now execute you with a {get_key(whatever_you_chose)}.'
 
 
 ######### Run the app #########
