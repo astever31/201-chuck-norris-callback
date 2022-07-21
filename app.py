@@ -39,7 +39,7 @@ app.layout = html.Div([
 @app.callback(dash.dependencies.Output('your-output-here', 'children'),
               [dash.dependencies.Input('your-input-here', 'value')])
 def display_value(whatever_you_chose):
-    return html.Img(src=app.get_asset_url(list_of_images(whatever_you_chose)), style={'width': 'auto', 'height': '10%'}) 
+    return html.Img(src=app.get_asset_url(list_of_images[whatever_you_chose]), style={'width': 'auto', 'height': '10%'}) 
 
 @app.callback(dash.dependencies.Output('your-output-here', 'children'),
               [dash.dependencies.Input('your-input-here', 'value')])
